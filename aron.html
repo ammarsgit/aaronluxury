@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aaron Taylor Luxury Real Estate | Michigan's Premier Developer</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #123456;
+            --secondary: #d4af37;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --transition: all 0.4s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+        }
+        
+        section {
+            padding: 100px 0;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInLeft {
+            from { transform: translateX(-100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideInRight {
+            from { transform: translateX(100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 10px 0;
+        }
+        
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 5px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            color: var(--secondary);
+            font-size: 28px;
+            text-decoration: none;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--dark);
+            margin: 5px 0;
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Designer.jpeg') center/cover no-repeat;
+            color: white;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 0;
+            transition: var(--transition);
+            font-weight: 500;
+            border: 2px solid var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn:hover {
+            background: transparent;
+            color: var(--secondary);
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-30px) translateX(-50%); }
+            60% { transform: translateY(-15px) translateX(-50%); }
+        }
+        
+        .scroll-down svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        /* About Section */
+        .about {
+            background-color: white;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-img {
+            position: relative;
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            box-shadow: 20px 20px 0 var(--secondary);
+        }
+        
+        .about-text h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .stat-item p {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Properties Section */
+        .properties {
+            background-color: #f9f9f9;
+        }
+        
+        .property-info {
+            padding: 25px;
+            display: flex; /* Enable Flexbox */
+            flex-direction: column; /* Stack children vertically */
+            height: 100%; /* Ensure the container takes full height */
+        }
+
+        .property-info h3,
+        .property-info p,
+        .property-info .property-price,
+        .property-info .property-details {
+            flex: 0 0 auto; /* Prevent these elements from growing */
+        }
+
+        .property-info .learn-more {
+            margin-top: auto; /* Push the button to the bottom */
+        }
+
+        .property-card {
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            overflow: hidden;
+            display: flex; /* Enable Flexbox */
+            flex-direction: column; /* Stack children vertically */
+        }
+
+        .property-img {
+            height: 250px; /* Fixed height for the image */
+            overflow: hidden;
+        }
+
+        .property-info {
+            flex: 1; /* Allow the info section to take remaining space */
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Add this to your existing CSS */
+        .view-all-button .btn {
+            background-color: var(--primary); /* Use your primary color */
+            color: white;
+            padding: 15px 30px;
+            font-size: 1rem;
+            border: 2px solid var(--primary);
+            transition: var(--transition);
+        }
+
+        .view-all-button .btn:hover {
+            background-color: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .learn-more {
+            display: inline-block;
+            padding: 4px 12px; /* Thin padding */
+            background-color: transparent;
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 0;
+            transition: var(--transition);
+            font-weight: 500;
+            border: 1px solid var(--primary);
+            font-size: 0.8rem; /* Smaller font size */
+            line-height: 1; /* Tighter line height */
+            margin-top: auto; /* Push to the bottom */
+            text-align: center; /* Center the text */
+        }
+
+        .learn-more:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .section-header p {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .property-card {
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            overflow: hidden;
+        }
+        
+        .property-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .property-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .property-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .property-card:hover .property-img img {
+            transform: scale(1.1);
+        }
+        
+        .property-info {
+            padding: 25px;
+        }
+        
+        .property-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .property-info p {
+            margin-bottom: 15px;
+            color: #667;
+        }
+        
+        .property-price {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin: 15px 0;
+            font-weight: 700;
+        }
+        
+        .property-details {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .detail {
+            display: flex;
+            align-items: center;
+        }
+        
+        .detail svg {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            fill: var(--primary);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: linear-gradient(rgba(18, 52, 86, 0.9), rgba(18, 52, 86, 0.9)), url('Testimonies.jpeg') center/cover no-repeat;
+            color: white;
+        }
+        
+        .testimonials .section-header h2 {
+            color: white;
+        }
+        
+        .testimonial-slider {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+        }
+        
+        .testimonial-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 50px;
+        }
+        
+        .testimonial-slide.active {
+            opacity: 1;
+        }
+        
+        .testimonial-slide p {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            max-width: 800px;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-author span {
+            font-weight: 400;
+            opacity: 0.8;
+        }
+        
+        .testimonial-nav {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .testimonial-nav button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .testimonial-nav button.active {
+            background: var(--secondary);
+            transform: scale(1.2);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info h2 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 30px;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .contact-method svg {
+            width: 25px;
+            height: 25px;
+            fill: var(--secondary);
+            margin-right: 15px;
+        }
+        
+        .contact-form {
+            padding: 40px;
+            background: #f9f9f9;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 20px;
+            border: 1px solid #ddd;
+            transition: var(--transition);
+            background: white;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h3 {
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .footer-col p {
+            margin-bottom: 20px;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-col ul li a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .social-links svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Media Queries */
+        @media (max-width: 1024px) {
+            h1 {
+                font-size: 3.5rem;
+            }
+            h2 {
+                font-size: 2.5rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                padding: 80px 0;
+            }
+            .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hamburger {
+                display: block;
+                z-index: 1001;
+            }
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: 0.5s;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+            nav.active {
+                right: 0;
+            }
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+            }
+            nav ul li {
+                margin: 15px 0;
+            }
+            .hamburger.active div:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            .hamburger.active div:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active div:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .btn {
+                padding: 12px 20px;
+            }
+            .properties-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation Classes */
+        .animate-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 1s;
+        }
+        
+        .animate-slide-left {
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: 1s;
+        }
+        
+        .animate-slide-right {
+            opacity: 0;
+            transform: translateX(100px);
+            transition: 1s;
+        }
+        
+        .animate-active {
+            opacity: 1;
+            transform: translate(0);
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">Aaron <span>Taylor</span></a>
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#properties">Properties</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Luxury Living in Michigan</h1>
+            <p>Discover unparalleled real estate opportunities with Michigan's premier luxury developer and top-producing agent.</p>
+            <a href="#properties" class="btn">View Properties</a>
+        </div>
+        <div class="scroll-down">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 16l-6-6h12l-6 6z" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-img animate-slide-left">
+                    <img src="Headshot.jpeg" alt="Aaron Taylor">
+                </div>
+                <div class="about-text animate-slide-right">
+                    <h2>Meet Aaron Taylor</h2>
+                    <p>As one of Michigan's top-producing luxury real estate agent and developer, Aaron Taylor has revolutionized the high-end property market with an unmatched blend of visionary development, innovative marketing strategies, and exceptional
+                        client service.</p>
+                    <p>With many years of experience and a portfolio of prestigious properties across Michigan's most coveted locations, Aaron specializes in creating and representing homes that perfectly balance architectural excellence, premium locations,
+                        and sophisticated living.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <h3>$100M+</h3>
+                            <p>Total Sales Volume</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>100+</h3>
+                            <p>Luxury Homes</p>
+                        </div>
+                        <!-- <div class="stat-item">
+                            <h3>100+</h3>
+                            <p>Over 100 clients a month</p>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section class="properties" id="properties">
+        <div class="container">
+            <div class="section-header animate-fade-in">
+                <h2>Featured Properties</h2>
+                <p>Explore our collection of Michigan's most prestigious properties, from waterfront estates to urban penthouses.</p>
+            </div>
+            <div class="properties-grid">
+                <div class="property-card animate-fade-in">
+                    <div class="property-img">
+                        <a href="https://aaron.anthonydjon.com/search/detail/237562078?s[propertyTypes][0]=house&s[propertyTypes][1]=condo&s[propertyTypes][2]=townhouse&s[propertyTypes][3]=apt&s[propertyTypes][4]=comm&s[propertyTypes][5]=land&s[featured]=t">
+                            <img src="Featured1.jpeg" alt="Luxury Waterfront Estate">
+                        </a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Modern Luxury Townhome</h3>
+                        <p>Royal Oak, MI</p>
+                        <div class="property-price">$875,000</div>
+                        <p>This stunning three-story luxury townhome offers the perfect blend of contemporary design, high-end finishes, and an unbeatable location.</p>
+                        <div class="property-details">
+                            <div class="detail">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z" />
+                                </svg>
+                                <span>Smart Home</span>
+                            </div>
+                            <div class="detail">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm0 18c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
+                                </svg>
+                                <span>2,023 sq ft</span>
+                            </div>
+                        </div>
+                        <a href="https://aaron.anthonydjon.com/search/detail/237562078?s[propertyTypes][0]=house&s[propertyTypes][1]=condo&s[propertyTypes][2]=townhouse&s[propertyTypes][3]=apt&s[propertyTypes][4]=comm&s[propertyTypes][5]=land&s[featured]=t" class="btn learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="property-card animate-fade-in">
+                    <div class="property-img">
+                        <a href="https://aaron.anthonydjon.com/search/detail/237979099?s[propertyTypes][0]=house&s[propertyTypes][1]=condo&s[propertyTypes][2]=townhouse&s[propertyTypes][3]=apt&s[propertyTypes][4]=comm&s[propertyTypes][5]=land&s[featured]=t">
+                            <img src="Featured2.jpeg" alt="Modern Penthouse">
+                        </a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Ranch House</h3>
+                        <p>Waterford, MI</p>
+                        <div class="property-price">$325,000</div>
+                        <p>An beautifully updated 3-bedroom ranch, nestled on a spacious, over half-acre lot that offers the perfect combination of modern living and peaceful natural beauty.</p>
+                        <div class="property-details">
+                            <div class="detail">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M12 5.69l5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z" />
+                                </svg>
+                                <span>Ranch</span>
+                            </div>
+                            <div class="detail">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm0 18c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
+                                </svg>
+                                <span>1,723 sq ft</span>
+                            </div>
+                        </div>
+                        <a href="https://aaron.anthonydjon.com/search/detail/237979099?s[propertyTypes][0]=house&s[propertyTypes][1]=condo&s[propertyTypes][2]=townhouse&s[propertyTypes][3]=apt&s[propertyTypes][4]=comm&s[propertyTypes][5]=land&s[featured]=t" class="btn learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="property-card animate-fade-in">
+                    <div class="property-img">
+                        <a href="https://aaron.anthonydjon.com/search/detail/237841803?s[propertyTypes][0]=house&s[propertyTypes][1]=condo&s[propertyTypes][2]=townhouse&s[propertyTypes][3]=apt&s[propertyTypes][4]=comm&s[propertyTypes][5]=land&s[featured]=t">
+                            <img src="Featured3.jpeg" alt="Vineyard Estate">
+                        </a>
+                    </div>
+                    <div class="property-info">
+                        <h3>Sapphire Home</h3>
+                        <p>Bloomfield Township, MI</p>
+                        <div class="property-price">$2,975,000</div>
+                        <p>Nestled in the prestigious Turtle Lake community of Bloomfield Township, this exquisite 2022 custom-built Sapphire home offers an unparalleled blend of elegance and modern luxury.</p>
+                        <div class="property-details">
+                            <div class="detail">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M14 6l-3.75 5 2.85 3.8-1.6 1.2L7 10l-5 7h22L14 6z" />
+                                </svg>
+                                <span>.85 Lot acres</span>
+                            </div>
+                            <div class="detail">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm0 18c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
+                                </svg>
+                                <span>4,426 sq ft</span>
+                            </div>
+                        </div>
+                        <a href="https://aaron.anthonydjon.com/search/detail/237841803?s[propertyTypes][0]=house&s[propertyTypes][1]=condo&s[propertyTypes][2]=townhouse&s[propertyTypes][3]=apt&s[propertyTypes][4]=comm&s[propertyTypes][5]=land&s[featured]=t" class="btn learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="view-all-button animate-fade-in" style="text-align: center; margin-top: 40px;">
+                <a href="https://www.anthonydjon.com/meet-our-team/aaron-taylor" class="btn">View All Listings</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header animate-fade-in">
+                <h2>Client Testimonials</h2>
+                <p>What our clients say about working with Aaron Taylor</p>
+            </div>
+            <div class="testimonial-slider animate-fade-in">
+                <div class="testimonial-slide active">
+                    <p>"Working with Aaron was a game-changer in our search for the perfect waterfront property. His knowledge of Michigan's luxury market and ability to understand exactly what we wanted led us to our dream home."</p>
+                    <div class="testimonial-author">Elizabeth & Michael Thompson <span>- Bloomfield Hills</span></div>
+                </div>
+                <div class="testimonial-slide">
+                    <p>"As a developer himself, Aaron brings unique insights to the luxury market. He helped us find an exceptional investment property and guided the renovation process with expertise that added significant value."</p>
+                    <div class="testimonial-author">James Hartfield <span>- Grand Rapids</span></div>
+                </div>
+                <div class="testimonial-slide">
+                    <p>"Aaron's dedication to his clients is unmatched. From our initial meeting to closing day, he was available 24/7 and negotiated a price well below what we expected to pay for our lakefront estate."</p>
+                    <div class="testimonial-author">Sarah & David Miller <span>- Traverse City</span></div>
+                </div>
+            </div>
+            <div class="testimonial-nav">
+                <button class="active" data-slide="0"></button>
+                <button data-slide="1"></button>
+                <button data-slide="2"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info animate-slide-left">
+                    <h2>Get In Touch</h2>
+                    <p>Ready to find your dream home or discuss your development project? Contact Aaron Taylor today for a personalized consultation.</p>
+                    <div class="contact-method">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm0 18c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
+                        </svg>
+                        <span>Phone: (555) 123-4567</span>
+                    </div>
+                    <div class="contact-method">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                        </svg>
+                        <span>Email: info@aarontluxury.com</span>
+                    </div>
+                    <div class="contact-method">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                        </svg>
+                        <span>Address: 123 Luxury Lane, Detroit, MI 48226</span>
+                    </div>
+                </div>
+                <div class="contact-form animate-slide-right">
+                    <form action="https://formspree.io/f/mjkywoby" method="POST" id="contact-form">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-block" id="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Aaron Taylor Luxury Real Estate</h3>
+                    <p>One of Michigan's premier luxury real estate developer and top-producing agent, specializing in high-end properties and bespoke living experiences.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#properties">Properties</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <p>Phone: (555) 123-4567</p>
+                    <p>Email: info@aarontluxury.com</p>
+                    <p>Address: 123 Luxury Lane, Detroit, MI 48226</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M22.23 5.924c-.736.326-1.527.547-2.357.646.847-.508 1.498-1.312 1.804-2.27-.793.47-1.67.812-2.606.996-.747-.797-1.813-1.296-2.993-1.296-2.266 0-4.103 1.837-4.103 4.103 0 .322.036.635.106.935-3.41-.17-6.433-1.804-8.457-4.287-.353.607-.555 1.312-.555 2.064 0 1.424.724 2.68 1.825 3.415-.673-.02-1.305-.206-1.86-.513v.052c0 1.988 1.415 3.647 3.293 4.023-.344.095-.707.146-1.08.146-.265 0-.522-.025-.773-.075.522 1.63 2.038 2.817 3.833 2.85-1.404 1.1-3.174 1.757-5.096 1.757-.332 0-.66-.02-.98-.057 1.816 1.164 3.973 1.843 6.29 1.843 7.547 0 11.675-6.253 11.675-11.675 0-.178-.004-.355-.012-.53.802-.58 1.497-1.304 2.047-2.13z"
+                                />
+                            </svg>
+                        </a>
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                                />
+                            </svg>
+                        </a>
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                                />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Aaron Taylor Luxury Real Estate. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Header Scroll Effect
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+    
+        // Testimonial Slider
+        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+        const testimonialNav = document.querySelectorAll('.testimonial-nav button');
+        let currentSlide = 0;
+    
+        const showSlide = (index) => {
+            testimonialSlides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            testimonialNav.forEach((nav, i) => {
+                nav.classList.toggle('active', i === index);
+            });
+        };
+    
+        testimonialNav.forEach((nav, index) => {
+            nav.addEventListener('click', () => {
+                currentSlide = index;
+                showSlide(currentSlide);
+            });
+        });
+    
+
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            // Prevent the default form submission
+            e.preventDefault();
+
+            // Get the submit button
+            const submitBtn = document.getElementById('submit-btn');
+
+            // Disable the button and change its text
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            // Submit the form data to Formspree
+            const formData = new FormData(this);
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // If the submission is successful, update the button text
+                    submitBtn.textContent = 'Message Sent!';
+                } else {
+                    // If there's an error, re-enable the button and show an error message
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                    alert('Oops! Something went wrong. Please try again.');
+                }
+            })
+            .catch(error => {
+                // Handle network errors
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+                alert('Oops! Something went wrong. Please try again.');
+            });
+        });
+
+        
+        // Auto Slide Change
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % testimonialSlides.length;
+            showSlide(currentSlide);
+        }, 5000);
+    
+        // Scroll Animations
+        const animateElements = document.querySelectorAll('.animate-fade-in, .animate-slide-left, .animate-slide-right');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-active');
+                }
+            });
+        }, { threshold: 0.1 });
+    
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+
+</html>
